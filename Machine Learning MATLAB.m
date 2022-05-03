@@ -44,17 +44,22 @@ function [trainedClassifier, validationAccuracy] = trainClassifier(trainingData)
 % This code processes the data into the right shape for training the
 % model.
 % Set up the Import Options and import the data
+% replace 67 with the correct number of variables
 opts = spreadsheetImportOptions("NumVariables", 67);
  
+% replace EXCEL_FILE with the name of your excel file and A2:BO158 with the cell ranges from your excel file
 % Specify sheet and range
 opts.Sheet = "EXCEL_FILE";
 opts.DataRange = "A2:BO158";
  
 % Specify column names and types
-opts.VariableNames = ["ID", "Predictor_1", "Predictor_2", "Predictor_3", "Outcome_variable"];  
+% replace variable names with the names of your variables
+opts.VariableNames = ["ID", "Predictor_1", "Predictor_2", "Predictor_3", "Outcome_variable"]; 
+% replace double with the variable types and number of statements match the order of your variables
 opts.VariableTypes = ["double", "double", "double", "double", "double"];
  
 % Import the data
+% replace "C:\Users\Documents\excel_files\excel_file.xlsx" with the location and name of your excel file
 excel_file = readtable("C:\Users\Documents\excel_files\excel_file.xlsx", opts, "UseExcel", false);
 trainingData = excel_file;
  
@@ -65,9 +70,11 @@ clear opts
 rng(1);
 %%
 inputTable = trainingData;
+% replace variables with your predictors
 predictorNames = {'Predictor_1', 'Predictor_2', 'Predictor_3'};  
 predictors = inputTable(:, predictorNames);
 response = inputTable.Outcome_variable;
+% replace with variable type
 isCategoricalPredictor = [false, false, false];
 %%
 % Train a classifier GNB
@@ -101,6 +108,7 @@ naiveBayesPredictFcn = @(x) predict(classificationNaiveBayes, x);
 trainedClassifier.predictFcn = @(x) naiveBayesPredictFcn(predictorExtractionFcn(x));
  
 % Add additional fields to the result struct
+% replace with your predictor variables
 trainedClassifier.RequiredVariables = {'Predictor_1', 'Predictor_2', 'Predictor_3'};
 trainedClassifier.ClassificationNaiveBayes = classificationNaiveBayes;
 trainedClassifier.About = 'This struct is a trained model exported from Classification Learner R2021a.';
@@ -110,9 +118,11 @@ trainedClassifier.HowToPredict = sprintf('To make predictions on a new table, T,
 % This code processes the data into the right shape for training the
 % model.
 inputTable = trainingData;
+% replace with your predictor variables
 predictorNames = {'Predictor_1', 'Predictor_2', 'Predictor_3'};
 predictors = inputTable(:, predictorNames);
 response = inputTable.Outcome_variable;
+% replace with the type of your predictor variables
 isCategoricalPredictor = [false, false, false];
  
 % Perform cross-validation
