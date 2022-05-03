@@ -1,6 +1,6 @@
 # Matlab-Machine-learning-SMLT
 
-The MATLAB code was created using MATLAB 2021a
+The MATLAB code was created using MATLAB 2021a. Code was created using the Classification Learner App. See (https://www.mathworks.com/help/stats/classification-learner-app.html)
 
 The incuded code named Machine Learning MATLAB will create a gaussian naive bayes classifier.
 
