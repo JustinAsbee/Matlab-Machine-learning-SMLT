@@ -2,8 +2,10 @@
 
 The MATLAB code was created using MATLAB 2021a
 
-The code imports an excel file for the data using
-  opts.Sheet = "EXCEL_FILE";
-  The cells used in the analysis should be included in the DataRange arguement
-    opts.DataRange = "A2:BO158";
+The incuded code will create a gaussian naive bayes classifier
 
+Within the code you may search for replace comments, below those statements includes lines of code which must be modified to fit your data.
+
+Within MATLAB click the second line of code then click run and advance to execute each section of code.
+
+The code will generate a ROC curve in a popup window and performance metrics in the command window. In the workplace window, the code will produce several variables named Auccfold, Percfold, Sensfold, and Specfold. By double clicking on the variable names an additional variable window will appear within Matlab. The window contains the accuracy, precision, sensitivity, and specificity for each of the 10 folds. This data may be copied and pasted into other programs such as excel for data visualization.
